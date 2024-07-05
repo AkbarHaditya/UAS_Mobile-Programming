@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
     return await MySqlConnection.connect(settings);
   }
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -112,26 +112,35 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             color: Color.fromARGB(255, 224, 220, 220),
           ),
-
           Center(
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black, // Warna side border
+                  width: 5, // Ketebalan side border
+                ),
+                borderRadius: BorderRadius.circular(15),
+              ),
               child: Card(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Container(
+                  width: 950,
+                  height: 550, // Atur tinggi card
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/image/bg2.jpg"), // Ganti dengan gambar background card Anda
+                      fit: BoxFit.cover,
+                    ),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Container(
-                    width: 950,
-                    height: 550, // Atur tinggi card
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            "assets/image/Bg1.jpg"), // Ganti dengan gambar background card Anda
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ))),
-          // Positioned Card form login
+                ),
+              ),
+            ),
+          ),
+
           Positioned(
             right: 250, // Ubah nilai ini untuk mengatur posisi kiri-kanan
             top: 200,
@@ -163,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         prefixIcon: Icon(
                           Icons.email,
-                          color: Colors.blue,
+                          color: Colors.black,
                         ),
                       ),
                       style: TextStyle(color: Colors.black),
@@ -185,7 +194,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         prefixIcon: Icon(
                           Icons.lock,
-                          color: Colors.blue,
+                          color: Colors.black,
                         ),
                         suffixIcon: IconButton(
                           icon: Icon(
@@ -231,7 +240,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(color: Colors.white),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue.withOpacity(0.8),
+                        backgroundColor: Colors.black.withOpacity(0.8),
                         padding:
                             EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                         side: BorderSide(color: Colors.white),
@@ -354,7 +363,7 @@ class _RegisterPageState extends State<RegisterPage> {
       port: 3306,
       user: 'admin',
       password: 'admin123',
-      db: 'db_reservasi',
+      db: 'db_ppdb',
     );
 
     return await MySqlConnection.connect(settings);
@@ -369,26 +378,35 @@ class _RegisterPageState extends State<RegisterPage> {
           Container(
             color: Color.fromARGB(255, 224, 220, 220),
           ),
-
           Center(
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black, // Warna side border
+                  width: 5, // Ketebalan side border
+                ),
+                borderRadius: BorderRadius.circular(15),
+              ),
               child: Card(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Container(
+                  width: 950,
+                  height: 550, // Atur tinggi card
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/image/bg2.jpg"), // Ganti dengan gambar background card Anda
+                      fit: BoxFit.cover,
+                    ),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Container(
-                    width: 950,
-                    height: 550, // Atur tinggi card
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            "assets/image/Bg1.jpg"), // Ganti dengan gambar background card Anda
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ))),
-          // Positioned Card form login
+                ),
+              ),
+            ),
+          ),
+        
           Positioned(
             right: 250, // Ubah nilai ini untuk mengatur posisi kiri-kanan
             top: 200,
@@ -420,7 +438,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         prefixIcon: Icon(
                           Icons.email,
-                          color: Colors.blue,
+                          color: Colors.black,
                         ),
                       ),
                       style: TextStyle(color: Colors.black),
@@ -442,7 +460,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         prefixIcon: Icon(
                           Icons.lock,
-                          color: Colors.blue,
+                          color: Colors.black,
                         ),
                       ),
                       style: TextStyle(color: Colors.black),
@@ -475,7 +493,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: TextStyle(color: Colors.white),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue.withOpacity(0.8),
+                        backgroundColor: Colors.black.withOpacity(0.8),
                         padding:
                             EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                         side: BorderSide(color: Colors.white),

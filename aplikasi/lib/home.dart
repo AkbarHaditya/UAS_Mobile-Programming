@@ -3,6 +3,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:aplikasi/formPendaftaran.dart';
 import 'package:aplikasi/laporanTransaksi.dart';
 import 'package:aplikasi/testPage.dart';
+import 'package:aplikasi/pengumumanPage.dart';
+import 'package:aplikasi/formTransaksi.dart'; // Tambahkan ini jika belum ada
 
 void main() {
   runApp(MyApp());
@@ -12,9 +14,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: HomePage(),
     );
   }
@@ -25,7 +24,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -132,7 +132,8 @@ class _ImageSliderWidgetState extends State<ImageSliderWidget> {
                         SizedBox(height: 10),
                         Text(
                           _images[index]['judul']!,
-                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -146,153 +147,183 @@ class _ImageSliderWidgetState extends State<ImageSliderWidget> {
               effect: WormEffect(),
             ),
             SizedBox(height: 20),
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black, // Warna sisi card
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => FormPage(),
+              margin: EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 8.0), // Margin untuk membuat efek border
+              child: Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => FormPage(),
+                                    ),
+                                  );
+                                  print('PPDB button pressed');
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: Colors.black,
+                                  minimumSize: Size(150, 100),
+                                  side:
+                                      BorderSide(color: Colors.black, width: 2),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
-                                );
-                                print('PPDB button pressed');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
-                                minimumSize: Size(150, 100),
-                                side: BorderSide(color: Colors.black, width: 2),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
                                 ),
+                                child: Icon(Icons.school, size: 60),
                               ),
-                              child: Icon(Icons.school, size: 60),
-                            ),
-                            SizedBox(height: 5),
-                            Text('Pendaftaran', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                        SizedBox(width: 30),
-                        Column(
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                print('Info PPDB button pressed');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
-                                minimumSize: Size(150, 100),
-                                side: BorderSide(color: Colors.black, width: 2),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                              child: Icon(Icons.info, size: 60),
-                            ),
-                            SizedBox(height: 5),
-                            Text('Pengumuman', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                        SizedBox(width: 30),
-                        Column(
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => QuizPage(),
+                              SizedBox(height: 5),
+                              Text('Pendaftaran',
+                                  style: TextStyle(fontSize: 16)),
+                            ],
+                          ),
+                          SizedBox(width: 30),
+                          Column(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          PengumumanPage(), // Example values
+                                    ),
+                                  );
+                                  print('Pengumuman button pressed');
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: Colors.black,
+                                  minimumSize: Size(150, 100),
+                                  side:
+                                      BorderSide(color: Colors.black, width: 2),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
-                                );
-                                print('Test button pressed');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
-                                minimumSize: Size(150, 100),
-                                side: BorderSide(color: Colors.black, width: 2),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
                                 ),
+                                child: Icon(Icons.info, size: 60),
                               ),
-                              child: Icon(Icons.task, size: 60),
-                            ),
-                            SizedBox(height: 5),
-                            Text('Test', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                print('Transaksi button pressed');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
-                                minimumSize: Size(250, 100),
-                                side: BorderSide(color: Colors.black, width: 2),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                              child: Icon(Icons.money, size: 60),
-                            ),
-                            SizedBox(height: 5),
-                            Text('Transaksi', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                        SizedBox(width: 30),
-                        Column(
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LaporanTransaksi(),
+                              SizedBox(height: 5),
+                              Text('Pengumuman',
+                                  style: TextStyle(fontSize: 16)),
+                            ],
+                          ),
+                          SizedBox(width: 30),
+                          Column(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => QuizPage(),
+                                    ),
+                                  );
+                                  print('Test button pressed');
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: Colors.black,
+                                  minimumSize: Size(150, 100),
+                                  side:
+                                      BorderSide(color: Colors.black, width: 2),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
-                                );
-                                print('Laporan Transaksi button pressed');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
-                                minimumSize: Size(250, 100),
-                                side: BorderSide(color: Colors.black, width: 2),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
                                 ),
+                                child: Icon(Icons.task, size: 60),
                               ),
-                              child: Icon(Icons.description, size: 60),
-                            ),
-                            SizedBox(height: 5),
-                            Text('Laporan Transaksi', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                              SizedBox(height: 5),
+                              Text('Test', style: TextStyle(fontSize: 16)),
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => FormPage3(),
+                                    ),
+                                  );
+                                  print('Transaksi button pressed');
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: Colors.black,
+                                  minimumSize: Size(250, 100),
+                                  side:
+                                      BorderSide(color: Colors.black, width: 2),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                ),
+                                child: Icon(Icons.money, size: 60),
+                              ),
+                              SizedBox(height: 5),
+                              Text('Transaksi', style: TextStyle(fontSize: 16)),
+                            ],
+                          ),
+                          SizedBox(width: 30),
+                          Column(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => LaporanTransaksi(),
+                                    ),
+                                  );
+                                  print('Laporan Transaksi button pressed');
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: Colors.black,
+                                  minimumSize: Size(250, 100),
+                                  side:
+                                      BorderSide(color: Colors.black, width: 2),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                ),
+                                child: Icon(Icons.description, size: 60),
+                              ),
+                              SizedBox(height: 5),
+                              Text('Laporan Transaksi',
+                                  style: TextStyle(fontSize: 16)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
